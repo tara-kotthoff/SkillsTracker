@@ -2,6 +2,8 @@ package org.launchcode.skillstracker.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
@@ -40,7 +42,7 @@ public class SkillsController {
                         "    <option value=\"JavaScript\">JavaScript</option>" +
                         "    <option value=\"Java\">Java</option>" +
                         "    <option value=\"Python\">Python</option>" +
-                        "</select>" +
+                        "</select><br>" +
 
                         "<label for=\"language-select\">My second favorite language is:</label>" +
                         "<select name=\"language\" id=\"language-select\">" +
@@ -48,7 +50,7 @@ public class SkillsController {
                         "    <option value=\"JavaScript\">JavaScript</option>" +
                         "    <option value=\"Java\">Java</option>" +
                         "    <option value=\"Python\">Python</option>" +
-                        "</select>" +
+                        "</select><br>" +
 
                         "<label for=\"language-select\">My third favorite language is:</label>" +
                         "<select name=\"language\" id=\"language-select\">" +
@@ -61,4 +63,9 @@ public class SkillsController {
                 "</html>";
         return html;
     }
+
+//    @PostMapping("form")
+//    public String submitForm(@RequestParam) {
+//
+//    }
 }
