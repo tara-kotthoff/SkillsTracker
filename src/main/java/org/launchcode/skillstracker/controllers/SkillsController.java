@@ -36,8 +36,11 @@ public class SkillsController {
         String html =
                 "<html>" +
                     "<body>" +
+                        "<form method='post'>" +
+                        "<label for='name'>Name</label><br>" +
+                        "<input type='text' name='name'><br>" +
                         "<label for=\"language-select\">My favorite language is:</label>" +
-                        "<select name=\"language\" id=\"language-select\">" +
+                        "<select name=\"languageOne\">" +
                         "    <option value=\"\">--Please choose an option--</option>" +
                         "    <option value=\"JavaScript\">JavaScript</option>" +
                         "    <option value=\"Java\">Java</option>" +
@@ -45,7 +48,7 @@ public class SkillsController {
                         "</select><br>" +
 
                         "<label for=\"language-select\">My second favorite language is:</label>" +
-                        "<select name=\"language\" id=\"language-select\">" +
+                        "<select name=\"languageTwo\">" +
                         "    <option value=\"\">--Please choose an option--</option>" +
                         "    <option value=\"JavaScript\">JavaScript</option>" +
                         "    <option value=\"Java\">Java</option>" +
@@ -53,19 +56,34 @@ public class SkillsController {
                         "</select><br>" +
 
                         "<label for=\"language-select\">My third favorite language is:</label>" +
-                        "<select name=\"language\" id=\"language-select\">" +
+                        "<select name=\"languageThree\">" +
                         "    <option value=\"\">--Please choose an option--</option>" +
                         "    <option value=\"JavaScript\">JavaScript</option>" +
                         "    <option value=\"Java\">Java</option>" +
                         "    <option value=\"Python\">Python</option>" +
                         "</select>" +
+                        "<br>" +
+                        "<input type='submit' value='Submit'" +
+                        "</form>" +
                     "</body>" +
                 "</html>";
         return html;
     }
 
-//    @PostMapping("form")
-//    public String submitForm(@RequestParam) {
-//
-//    }
+    @PostMapping("form")
+    @ResponseBody
+    public String submitForm(@RequestParam String name, @RequestParam String languageOne, @RequestParam String languageTwo,
+                             @RequestParam String languageThree) {
+        return "<html>" +
+                    "<body>" +
+                        "<h1>name</h1>" +
+                            "<ol>" +
+                                "<li>languageOne</li>" +
+                                "<li>languageTwo</li>" +
+                                "<li>languageThree</li>" +
+                            "</ol>" +
+                        "</body>" +
+                "</html>";
+
+    }
 }
